@@ -6,14 +6,14 @@ hide: true
 
 ### Me and Team
 
-Hi! My name is [Your Full Name].
+Hi! My name is Precia Verma.
 
 | Role         | Name     | Repo Location                       | Stream                | Repo Name |
 |--------------|----------|-------------------------------------|-----------------------|-----------|
 | Scrum Master | John     | github.com/jm1021/student           | upstream (OCS fork)   | student   |
-| Scrummer     | Torin    | github.com/torin/student            | downstream (fork)     | student   |
-| Scrummer     | Avantika | github.com/avantika/student         | downstream (fork)     | student   |
-| Scrummer     | Aadit    | github.com/aaadit/student           | downstream (fork)     | student   |
+| Scrummer     | Precia    | github.com/torin/student            | downstream (fork)     | student   |
+| Scrummer     | Crystal | github.com/avantika/student         | downstream (fork)     | student   |
+| Scrummer     | Tasha    | github.com/aaadit/student           | downstream (fork)     | student   |
 
 
 ## Links to Learning
