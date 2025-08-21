@@ -109,7 +109,7 @@ Here is what I did at those places
 
 ### Culture, Family, and Fun
 
-Everything for me, revolves around my loveing family and amazing friends.
+Everything for me, revolves around my loving family and amazing friends.
 
 - My mom has been by my side since day 1 and has never let me down. I really enjoy her company and will always be grateful to have a mother like her.
 - I have a family of 4, my younger sister, my dad, my mom, and ME! Just like me, my sister also goes to Del Sur elementary. My family is everything I could ever ask for and I love them so much. 
