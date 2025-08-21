@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Snake Game
+title: Precia's Snake Game
 permalink: /snake/
 ---
 
@@ -63,14 +63,14 @@ permalink: /snake/
     }
 
     #setting input:checked + label{
-        background-color: #FFF;
+        background-color: #36e536ff;
         color: #000;
     }
 </style>
 
 <h2>Snake</h2>
 <div class="container">
-    <p class="fs-4">Score: <span id="score_value">0</span></p>
+    <p class="fs-4">Score: <span id="score_value">10</span></p>
 
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
@@ -327,7 +327,7 @@ permalink: /snake/
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
         let activeDot = function(x, y){
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = "#ec2222ff";
             ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
         /* Random food placement */
