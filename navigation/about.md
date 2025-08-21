@@ -102,7 +102,7 @@ Here is what I did at those places
 - 🏫 I went to Del Sur Elementary the Oak Valley and the Del Norte
 - 🎓 I graduated from Oak Valley in 2025
 - 🥇 I have won many beauty pagents in California
-- 👪 I spent a lot of time with family anf friends
+- 👪 I spent a lot of time with family and friends
 - 🛍 I have done a TON of shopping in San Diego
 - 🤺 Started doing a new sport called fencing and I am really enjoying it 
 - 🪔 Celebrated many Indian Festivals with my friends and family which I really liked
