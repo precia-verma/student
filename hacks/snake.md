@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Snake Game
+title: Precia's Snake Game
 permalink: /snake/
 ---
 
@@ -63,14 +63,14 @@ permalink: /snake/
     }
 
     #setting input:checked + label{
-        background-color: #FFF;
+        background-color: #36e536ff;
         color: #000;
     }
 </style>
 
 <h2>Snake</h2>
 <div class="container">
-    <p class="fs-4">Score: <span id="score_value">0</span></p>
+    <p class="fs-4">Score: <span id="score_value">10</span></p>
 
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
@@ -89,7 +89,7 @@ permalink: /snake/
         <canvas id="snake" class="wrap" width="320" height="320" tabindex="1"></canvas>
         <!-- Settings Screen -->
         <div id="setting" class="py-4 text-light">
-            <p>Settings Screen, press <span style="background-color: #FFFFFF; color: #000000">space</span> to go back to playing</p>
+            <p>Settings Screen, press <span style="background-color: #92e54eff; color: #000000">space</span> to go back to playing</p>
             <a id="new_game2" class="link-alert">new game</a>
             <br>
             <p>Speed:
