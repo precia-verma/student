@@ -263,7 +263,7 @@ permalink: /snake/
                 snake[snake.length] = {x: snake[0].x, y: snake[0].y};
                 altScore(++score);
                 addFood();
-                activeDot(food.x, food.y);
+                activeDot(food.x, food.y, "#FF0000"); // red for apple
             }
             // Repaint canvas
             ctx.beginPath();
@@ -271,10 +271,10 @@ permalink: /snake/
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             // Paint snake
             for(let i = 0; i < snake.length; i++){
-                activeDot(snake[i].x, snake[i].y);
+                activeDot(snake[i].x, snake[i].y, "#00FF00"); // green for snake
             }
             // Paint food
-            activeDot(food.x, food.y);
+            activeDot(food.x, food.y, "#FF0000"); // red for apple
             // Debug
             //document.getElementById("debug").innerHTML = snake_dir + " " + snake_next_dir + " " + snake[0].x + " " + snake[0].y;
             // Recursive call after speed delay, déjà vu
@@ -326,8 +326,8 @@ permalink: /snake/
         }
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
-        let activeDot = function(x, y){
-            ctx.fillStyle = "#FFFFFF";
+        let activeDot = function(x, y, color){
+            ctx.fillStyle = color;
             ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
         /* Random food placement */
