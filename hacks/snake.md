@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Precia's Snake Game
+title: Precia's Snake Game 
 permalink: /snake/
 ---
 
