@@ -1,7 +1,7 @@
 ---
 layout: base
 title: Precia's Snake Game 
-permalink: /snake/
+permalink: /snake/ 
 ---
 
 <style>
