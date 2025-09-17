@@ -25,60 +25,83 @@ HTML implementation of the calculator.
     Background is credited to Vanta JS and is implemented at bottom of this page
 -->
 <style>
+  body {
+    background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+    min-height: 100vh;
+  }
   .calculator-container {
     display: grid;
-    grid-template-columns: repeat(4, 60px);
-    grid-template-rows: repeat(6, 60px);
-    gap: 8px;
+    grid-template-columns: repeat(4, 64px);
+    grid-template-rows: repeat(6, 64px);
+    gap: 12px;
     width: max-content;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.8);
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 40px auto 0 auto;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 32px 28px 28px 28px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    border: 1.5px solid #e0e0e0;
   }
   .calculator-output {
     grid-column: 1 / span 4;
     grid-row: 1;
     border-radius: 10px;
-    padding: 0.25em 0.5em;
-    font-size: 24px;
-    border: 3px solid #222;
+    padding: 0.2em 0.5em;
+    font-size: 1.3rem;
+    border: none;
+    box-shadow: 0 2px 8px rgba(67,198,172,0.10);
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background: #f9f9f9;
-    min-height: 40px;
+    background: linear-gradient(90deg, #e0eafc 0%, #cfdef3 100%);
+    min-height: 28px;
     margin-bottom: 8px;
+    color: #222;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-bottom: 2px solid #43c6ac;
   }
   .calculator-number, .calculator-operation, .calculator-clear, .calculator-equals {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    border-radius: 8px;
-    background: #e0e0e0;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    background: #f7fafc;
     cursor: pointer;
     user-select: none;
-    border: 1px solid #bbb;
-    transition: background 0.2s;
+    border: none;
+    box-shadow: 0 2px 6px rgba(67,198,172,0.08);
+    transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+    font-family: 'Fira Sans', 'Arial', sans-serif;
+    font-weight: 500;
   }
   .calculator-number:hover, .calculator-operation:hover, .calculator-clear:hover, .calculator-equals:hover {
-    background: #d1d1d1;
+    background: #e0eafc;
+    box-shadow: 0 4px 12px rgba(67,198,172,0.18);
+    transform: translateY(-2px) scale(1.04);
   }
   .calculator-operation {
-    background: #ffd966;
-    font-weight: bold;
+    background: linear-gradient(135deg, #ffd966 60%, #fffbe6 100%);
+    color: #b8860b;
+    font-weight: 700;
+    border-bottom: 2px solid #ffd966;
   }
   .calculator-clear {
-    background: #ffb3b3;
-    font-weight: bold;
+    background: linear-gradient(135deg, #ffb3b3 60%, #fff0f0 100%);
+    color: #b22222;
+    font-weight: 700;
+    border-bottom: 2px solid #ffb3b3;
   }
   .calculator-equals {
-    background: #b3ffd9;
-    font-weight: bold;
+    background: linear-gradient(90deg, #43c6ac 0%, #f8ffae 100%);
+    color: #222;
+    font-weight: 700;
     grid-column: 1 / span 4;
-    font-size: 24px;
+    font-size: 2rem;
+    border-bottom: 2px solid #43c6ac;
+    box-shadow: 0 4px 16px rgba(67,198,172,0.18);
   }
   canvas {
     filter: none;
