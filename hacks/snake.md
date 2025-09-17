@@ -284,7 +284,10 @@ permalink: /snake/
             }
             // Snake eats food checker
             if(checkBlock(snake[0].x, snake[0].y, food.x, food.y)){
-                snake[snake.length] = {x: snake[0].x, y: snake[0].y};
+                // Grow by 3 segments instead of 1
+                for(let i = 0; i < 3; i++) {
+                    snake[snake.length] = {x: snake[0].x, y: snake[0].y};
+                }
                 altScore(++score);
                 addFood();
                 activeDot(food.x, food.y, "#FF0000"); // red for apple
