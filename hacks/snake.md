@@ -70,7 +70,13 @@ permalink: /snake/
 
 <h2>Snake</h2>
 <div class="container">
-    <p class="fs-4">Score: <span id="score_value">10</span></p>
+
+        <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+            <div id="score_card" style="background: linear-gradient(90deg, #f9d423 0%, #ff4e50 100%); box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-radius: 1.5rem; padding: 1.2rem 2.5rem; display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 2px; text-shadow: 1px 1px 4px #0008;">🍏 SCORE</span>
+                <span id="score_value" style="font-size: 2.5rem; font-weight: 900; color: #fff; background: rgba(0,0,0,0.18); border-radius: 0.7rem; padding: 0.2em 1em; margin-left: 0.5em; min-width: 2.5em; text-align: center; box-shadow: 0 2px 8px #0002;">10</span>
+            </div>
+        </div>
 
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
