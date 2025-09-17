@@ -271,10 +271,15 @@ permalink: /snake/
                 addFood();
                 activeDot(food.x, food.y, "#FF0000"); // red for apple
             }
-            // Repaint canvas
-            ctx.beginPath();
-            ctx.fillStyle = "royalblue";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Draw checkered background
+            const cols = canvas.width / BLOCK;
+            const rows = canvas.height / BLOCK;
+            for (let y = 0; y < rows; y++) {
+                for (let x = 0; x < cols; x++) {
+                    ctx.fillStyle = (x + y) % 2 === 0 ? '#a2d4fa' : '#5296e4ff'; // light blue and blue
+                    ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
+                }
+            }
             // Paint snake
             for(let i = 0; i < snake.length; i++){
                 activeDot(snake[i].x, snake[i].y, "#00FF00"); // green for snake
