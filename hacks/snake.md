@@ -311,7 +311,7 @@ permalink: /snake/
         let newGame = function(){
             // snake game screen
             showScreen(SCREEN_SNAKE);
-            screen_snake.focus();
+            setTimeout(() => { screen_snake.focus(); }, 50); // ensure focus after DOM update
             // game score to zero
             score = 0;
             altScore(score);
@@ -323,28 +323,32 @@ permalink: /snake/
             addFood();
             // activate canvas event
             canvas.onkeydown = function(evt) {
-                changeDir(evt.key || evt.keyCode);
+                changeDir(evt.keyCode);
             }
             mainLoop();
         }
         /* Key Inputs and Actions */
         /////////////////////////////////////////////////////////////
         let changeDir = function(key){
-            // Accept both arrow keys and WASD (upper/lower)
+            // Only arrow keys
             switch(key) {
-                case 37: case 'ArrowLeft': case 'a': case 'A':
+                case 37:    // left arrow
+                case 'ArrowLeft':
                     if (snake_dir !== 1)
                         snake_next_dir = 3;
                     break;
-                case 38: case 'ArrowUp': case 'w': case 'W':
+                case 38:    // up arrow
+                case 'ArrowUp':
                     if (snake_dir !== 2)
                         snake_next_dir = 0;
                     break;
-                case 39: case 'ArrowRight': case 'd': case 'D':
+                case 39:    // right arrow
+                case 'ArrowRight':
                     if (snake_dir !== 3)
                         snake_next_dir = 1;
                     break;
-                case 40: case 'ArrowDown': case 's': case 'S':
+                case 40:    // down arrow
+                case 'ArrowDown':
                     if (snake_dir !== 0)
                         snake_next_dir = 2;
                     break;
