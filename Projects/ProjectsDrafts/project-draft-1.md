@@ -1,5 +1,5 @@
 ---
-layout: opencs
+layout: base
 title: Project Draft 1
 description: Project Draft 1 with clickable planets on a space background.
 permalink: /project-draft-1/
