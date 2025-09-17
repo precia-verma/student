@@ -284,14 +284,8 @@ permalink: /snake/
             }
             // Snake eats food checker
             if(checkBlock(snake[0].x, snake[0].y, food.x, food.y)){
-                // Grow by 3 segments instead of 1
-                for(let i = 0; i < 3; i++) {
-                    snake[snake.length] = {x: snake[0].x, y: snake[0].y};
-                }
-                altScore(++score);
-                addFood();
-                activeDot(food.x, food.y, "#FF0000"); // red for apple
-            }
+                // Grow by 1 seg
+                snake[snake.length] = {x: snake[0].x, y: snake[0].y};
             // Draw checkered background
             const cols = canvas.width / BLOCK;
             const rows = canvas.height / BLOCK;
@@ -329,30 +323,30 @@ permalink: /snake/
             addFood();
             // activate canvas event
             canvas.onkeydown = function(evt) {
-                changeDir(evt.keyCode);
+                changeDir(evt.key || evt.keyCode);
             }
             mainLoop();
         }
         /* Key Inputs and Actions */
         /////////////////////////////////////////////////////////////
         let changeDir = function(key){
-            // test key and switch direction
+            // Accept both arrow keys and WASD (upper/lower)
             switch(key) {
-                case 37:    // left arrow
-                    if (snake_dir !== 1)    // not right
-                        snake_next_dir = 3; // then switch left
+                case 37: case 'ArrowLeft': case 'a': case 'A':
+                    if (snake_dir !== 1)
+                        snake_next_dir = 3;
                     break;
-                case 38:    // up arrow
-                    if (snake_dir !== 2)    // not down
-                        snake_next_dir = 0; // then switch up
+                case 38: case 'ArrowUp': case 'w': case 'W':
+                    if (snake_dir !== 2)
+                        snake_next_dir = 0;
                     break;
-                case 39:    // right arrow
-                    if (snake_dir !== 3)    // not left
-                        snake_next_dir = 1; // then switch right
+                case 39: case 'ArrowRight': case 'd': case 'D':
+                    if (snake_dir !== 3)
+                        snake_next_dir = 1;
                     break;
-                case 40:    // down arrow
-                    if (snake_dir !== 0)    // not up
-                        snake_next_dir = 2; // then switch down
+                case 40: case 'ArrowDown': case 's': case 'S':
+                    if (snake_dir !== 0)
+                        snake_next_dir = 2;
                     break;
             }
         }
