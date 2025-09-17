@@ -11,17 +11,17 @@ permalink: /project-draft-1/
 
   <!-- Planet 1 -->
   <a href="https://example.com/planet1" target="_blank" style="position: absolute; top: 100px; left: 150px;">
-  <img src="/home/kasm-user/opencs/student/Projects/ProjectsDrafts/Planet1.png" alt="Planet 1" width="80" />
+  <img src="/Projects/ProjectsDrafts/Planet1.png" alt="Planet 1" width="80" />
   </a>
 
   <!-- Planet 2 -->
   <a href="https://example.com/planet2" target="_blank" style="position: absolute; top: 250px; left: 400px;">
-  <img src="/home/kasm-user/opencs/student/Projects/ProjectsDrafts/Planet2.png" alt="Planet 2" width="100" />
+  <img src="/Projects/ProjectsDrafts/Planet2.png" alt="Planet 2" width="100" />
   </a>
 
   <!-- Planet 3 -->
   <a href="https://example.com/planet3" target="_blank" style="position: absolute; top: 350px; left: 600px;">
-  <img src="/home/kasm-user/opencs/student/Projects/ProjectsDrafts/Planet3.png" alt="Planet 3" width="70" />
+  <img src="/Projects/ProjectsDrafts/Planet.png" alt="Planet 3" width="70" />
   </a>
 
 </div>

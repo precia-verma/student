@@ -15,12 +15,12 @@ You can write normal Markdown for paragraphs, **bold**, *italics*, lists, etc.
   <a href="#about"
      style="background:#4f46e5;color:white;padding:0.6rem 1.2rem;
             border-radius:8px;text-decoration:none;font-weight:600;">
-    About
+    About Us!
   </a>
-  <a href="#projects"
+  <a href="#Hacks"
      style="background:#6366f1;color:white;padding:0.6rem 1.2rem;
             border-radius:8px;text-decoration:none;font-weight:600;">
-    Projects
+    Hacks
   </a>
   <a href="#blog"
      style="background:#7c3aed;color:white;padding:0.6rem 1.2rem;
@@ -46,16 +46,16 @@ You can write normal Markdown for paragraphs, **bold**, *italics*, lists, etc.
 
 ---
 
-## <a id="about"></a>About Me
-Write a little about yourself here.  
+## <a id="about"></a>About Us!
+Precia Verma: I am the Scrum Master of the team and try ot assign taks to each indivdual. One fun fact about me is that I love the color purple and my birthday is on Feburary 21st! My Github Repo is https://github.com/precia-verma/student.git
 Markdown supports **bold text**, `inline code`, and [links](https://example.com).
 
 ---
 
-## <a id="projects"></a>Projects
-- **Project One** – quick description.
-- **Project Two** – another cool thing.
-- **Project Three** – because two isn’t enough.
+## <a id="projects"></a>Hacks
+- **Hack One** – Our first hack is The Snake Game. The Snake game comes with various different tasks. For example, change the way the score looks, change the color of the snake and apple, and also change the background of the game! You can also do much more than what you are given. You can be as creative as you can, Mr. Mortensen loves that!
+- **Hack Two** – another cool thing.
+- **Hack Three** – because two isn’t enough.
 
 ---
 
