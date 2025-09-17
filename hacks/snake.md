@@ -71,11 +71,13 @@ permalink: /snake/
 <h2>Snake</h2>
 <div class="container">
 
-        <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem; gap: 0.5rem;">
             <div id="score_card" style="background: linear-gradient(90deg, #f9d423 0%, #ff4e50 100%); box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-radius: 1.5rem; padding: 1.2rem 2.5rem; display: flex; align-items: center; gap: 1rem;">
                 <span style="font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 2px; text-shadow: 1px 1px 4px #0008;">🍏 SCORE</span>
                 <span id="score_value" style="font-size: 2.5rem; font-weight: 900; color: #fff; background: rgba(0,0,0,0.18); border-radius: 0.7rem; padding: 0.2em 1em; margin-left: 0.5em; min-width: 2.5em; text-align: center; box-shadow: 0 2px 8px #0002;">10</span>
             </div>
+            <button id="speed_toggle_btn" style="margin-top: 0.5rem; background: #1565c0; color: #fff; font-size: 1.1rem; font-weight: 600; border: none; border-radius: 0.7rem; padding: 0.5em 1.5em; box-shadow: 0 2px 8px #0002; cursor: pointer; transition: background 0.2s;">Speed: Normal</button>
         </div>
 
     <div class="container bg-secondary" style="text-align:center;">
@@ -128,6 +130,14 @@ permalink: /snake/
         const screen_snake = document.getElementById("snake");
         const ele_score = document.getElementById("score_value");
         const speed_setting = document.getElementsByName("speed");
+        const speed_toggle_btn = document.getElementById("speed_toggle_btn");
+        const speedModes = [
+            { label: "Slow", value: 120 },
+            { label: "Normal", value: 75 },
+            { label: "Fast", value: 35 },
+            { label: "Impossible", value: 10 }
+        ];
+        let currentSpeedIdx = 1; // Start at Normal
         const wall_setting = document.getElementsByName("wall");
         // HTML Screen IDs (div)
         const SCREEN_MENU = -1, SCREEN_GAME_OVER=1, SCREEN_SETTING=2;
@@ -189,7 +199,7 @@ permalink: /snake/
             button_setting_menu.onclick = function(){showScreen(SCREEN_SETTING);};
             button_setting_menu1.onclick = function(){showScreen(SCREEN_SETTING);};
             // speed
-            setSnakeSpeed(150);
+            setSnakeSpeed(speedModes[currentSpeedIdx].value);
             for(let i = 0; i < speed_setting.length; i++){
                 speed_setting[i].addEventListener("click", function(){
                     for(let i = 0; i < speed_setting.length; i++){
@@ -199,6 +209,14 @@ permalink: /snake/
                     }
                 });
             }
+            // Speed toggle button
+            speed_toggle_btn.addEventListener("click", function() {
+                currentSpeedIdx = (currentSpeedIdx + 1) % speedModes.length;
+                setSnakeSpeed(speedModes[currentSpeedIdx].value);
+                speed_toggle_btn.textContent = `Speed: ${speedModes[currentSpeedIdx].label}`;
+            });
+            // Set initial button label
+            speed_toggle_btn.textContent = `Speed: ${speedModes[currentSpeedIdx].label}`;
             // wall setting
             setWall(1);
             for(let i = 0; i < wall_setting.length; i++){
