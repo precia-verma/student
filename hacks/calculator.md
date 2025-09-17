@@ -25,23 +25,60 @@ HTML implementation of the calculator.
     Background is credited to Vanta JS and is implemented at bottom of this page
 -->
 <style>
+  .calculator-container {
+    display: grid;
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: repeat(6, 60px);
+    gap: 8px;
+    width: max-content;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
   .calculator-output {
-    /*
-      calulator output
-      top bar shows the results of the calculator;
-      result to take up the entirety of the first row;
-      span defines 4 columns and 1 row
-    */
-    grid-column: span 4;
-    grid-row: span 1;
-  
+    grid-column: 1 / span 4;
+    grid-row: 1;
     border-radius: 10px;
-    padding: 0.25em;
-    font-size: 20px;
-    border: 5px solid black;
-  
+    padding: 0.25em 0.5em;
+    font-size: 24px;
+    border: 3px solid #222;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    background: #f9f9f9;
+    min-height: 40px;
+    margin-bottom: 8px;
+  }
+  .calculator-number, .calculator-operation, .calculator-clear, .calculator-equals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    border-radius: 8px;
+    background: #e0e0e0;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #bbb;
+    transition: background 0.2s;
+  }
+  .calculator-number:hover, .calculator-operation:hover, .calculator-clear:hover, .calculator-equals:hover {
+    background: #d1d1d1;
+  }
+  .calculator-operation {
+    background: #ffd966;
+    font-weight: bold;
+  }
+  .calculator-clear {
+    background: #ffb3b3;
+    font-weight: bold;
+  }
+  .calculator-equals {
+    background: #b3ffd9;
+    font-weight: bold;
+    grid-column: 1 / span 4;
+    font-size: 24px;
   }
   canvas {
     filter: none;
@@ -51,30 +88,30 @@ HTML implementation of the calculator.
 <!-- Add a container for the animation -->
 <div id="animation">
   <div class="calculator-container">
-      <!--result-->
-      <div class="calculator-output" id="output">0</div>
-      <!--row 1-->
-      <div class="calculator-number">7</div>
-      <div class="calculator-number">8</div>
-      <div class="calculator-number">9</div>
-      <div class="calculator-operation">/</div>
-      <!--row 2-->
-      <div class="calculator-number">4</div>
-      <div class="calculator-number">5</div>
-      <div class="calculator-number">6</div>
-      <div class="calculator-operation">*</div>
-      <!--row 3-->
-      <div class="calculator-number">1</div>
-      <div class="calculator-number">2</div>
-      <div class="calculator-number">3</div>
-      <div class="calculator-operation">-</div>
-      <!--row 4-->
-      <div class="calculator-clear">A/C</div>
-      <div class="calculator-number">0</div>
-      <div class="calculator-number">.</div>
-      <div class="calculator-operation">+</div>
-      <!--row 5-->
-      <div class="calculator-equals" style="grid-column: span 4;">=</div>
+    <!-- Output display -->
+    <div class="calculator-output" id="output">0</div>
+    <!-- 7 8 9 / -->
+    <div class="calculator-number" style="grid-row:2;grid-column:1;">7</div>
+    <div class="calculator-number" style="grid-row:2;grid-column:2;">8</div>
+    <div class="calculator-number" style="grid-row:2;grid-column:3;">9</div>
+    <div class="calculator-operation" style="grid-row:2;grid-column:4;">/</div>
+    <!-- 4 5 6 * -->
+    <div class="calculator-number" style="grid-row:3;grid-column:1;">4</div>
+    <div class="calculator-number" style="grid-row:3;grid-column:2;">5</div>
+    <div class="calculator-number" style="grid-row:3;grid-column:3;">6</div>
+    <div class="calculator-operation" style="grid-row:3;grid-column:4;">*</div>
+    <!-- 1 2 3 - -->
+    <div class="calculator-number" style="grid-row:4;grid-column:1;">1</div>
+    <div class="calculator-number" style="grid-row:4;grid-column:2;">2</div>
+    <div class="calculator-number" style="grid-row:4;grid-column:3;">3</div>
+    <div class="calculator-operation" style="grid-row:4;grid-column:4;">-</div>
+    <!-- A/C 0 . + -->
+    <div class="calculator-clear" style="grid-row:5;grid-column:1;">A/C</div>
+    <div class="calculator-number" style="grid-row:5;grid-column:2;">0</div>
+    <div class="calculator-number" style="grid-row:5;grid-column:3;">.</div>
+    <div class="calculator-operation" style="grid-row:5;grid-column:4;">+</div>
+    <!-- = -->
+    <div class="calculator-equals" style="grid-row:6;grid-column:1/span 4;">=</div>
   </div>
 </div>
 
