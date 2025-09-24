@@ -1,7 +1,7 @@
 ---
-layout: base
-title: Precia's Snake Game 
-permalink: /snake/ 
+layout: opencs
+title: Snake Game
+permalink: /snake
 ---
 
 <style>
@@ -63,23 +63,14 @@ permalink: /snake/
     }
 
     #setting input:checked + label{
-        background-color: #36e536ff;
+        background-color: #FFF;
         color: #000;
     }
 </style>
 
 <h2>Snake</h2>
 <div class="container">
-
-
-        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem; gap: 0.5rem;">
-            <div id="score_card" style="background: linear-gradient(90deg, #f9d423 0%, #ff4e50 100%); box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-radius: 1.5rem; padding: 1.2rem 2.5rem; display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 1.5rem; font-weight: bold; color: #fff; letter-spacing: 2px; text-shadow: 1px 1px 4px #0008;">🍏 SCORE</span>
-                <span id="score_value" style="font-size: 2.5rem; font-weight: 900; color: #fff; background: rgba(0,0,0,0.18); border-radius: 0.7rem; padding: 0.2em 1em; margin-left: 0.5em; min-width: 2.5em; text-align: center; box-shadow: 0 2px 8px #0002;">10</span>
-            </div>
-            <button id="speed_toggle_btn" style="margin-top: 0.5rem; background: #1565c0; color: #fff; font-size: 1.1rem; font-weight: 600; border: none; border-radius: 0.7rem; padding: 0.5em 1.5em; box-shadow: 0 2px 8px #0002; cursor: pointer; transition: background 0.2s;">Speed: Normal</button>
-        </div>
-
+    <p class="fs-4">Score: <span id="score_value">0</span></p>
     <div class="container bg-secondary" style="text-align:center;">
         <!-- Main Menu -->
         <div id="menu" class="py-4 text-light">
@@ -97,7 +88,7 @@ permalink: /snake/
         <canvas id="snake" class="wrap" width="320" height="320" tabindex="1"></canvas>
         <!-- Settings Screen -->
         <div id="setting" class="py-4 text-light">
-            <p>Settings Screen, press <span style="background-color: #92e54eff; color: #000000">space</span> to go back to playing</p>
+            <p>Settings Screen, press <span style="background-color: #FFFFFF; color: #000000">space</span> to go back to playing</p>
             <a id="new_game2" class="link-alert">new game</a>
             <br>
             <p>Speed:
@@ -130,14 +121,6 @@ permalink: /snake/
         const screen_snake = document.getElementById("snake");
         const ele_score = document.getElementById("score_value");
         const speed_setting = document.getElementsByName("speed");
-        const speed_toggle_btn = document.getElementById("speed_toggle_btn");
-        const speedModes = [
-            { label: "Slow", value: 120 },
-            { label: "Normal", value: 75 },
-            { label: "Fast", value: 35 },
-            { label: "Impossible", value: 10 }
-        ];
-        let currentSpeedIdx = 1; // Start at Normal
         const wall_setting = document.getElementsByName("wall");
         // HTML Screen IDs (div)
         const SCREEN_MENU = -1, SCREEN_GAME_OVER=1, SCREEN_SETTING=2;
@@ -199,7 +182,7 @@ permalink: /snake/
             button_setting_menu.onclick = function(){showScreen(SCREEN_SETTING);};
             button_setting_menu1.onclick = function(){showScreen(SCREEN_SETTING);};
             // speed
-            setSnakeSpeed(speedModes[currentSpeedIdx].value);
+            setSnakeSpeed(150);
             for(let i = 0; i < speed_setting.length; i++){
                 speed_setting[i].addEventListener("click", function(){
                     for(let i = 0; i < speed_setting.length; i++){
@@ -209,14 +192,6 @@ permalink: /snake/
                     }
                 });
             }
-            // Speed toggle button
-            speed_toggle_btn.addEventListener("click", function() {
-                currentSpeedIdx = (currentSpeedIdx + 1) % speedModes.length;
-                setSnakeSpeed(speedModes[currentSpeedIdx].value);
-                speed_toggle_btn.textContent = `Speed: ${speedModes[currentSpeedIdx].label}`;
-            });
-            // Set initial button label
-            speed_toggle_btn.textContent = `Speed: ${speedModes[currentSpeedIdx].label}`;
             // wall setting
             setWall(1);
             for(let i = 0; i < wall_setting.length; i++){
@@ -281,26 +256,24 @@ permalink: /snake/
                     showScreen(SCREEN_GAME_OVER);
                     return;
                 }
-            }
-            // Snake eats food checker
-            if(checkBlock(snake[0].x, snake[0].y, food.x, food.y)){
-                // Grow by 1 seg
+                            for(let i = 0; i < snake.length; i++){
+                                activeDot(snake[i].x, snake[i].y, "#1565c0"); // blue for snake
+                            }
                 snake[snake.length] = {x: snake[0].x, y: snake[0].y};
-            // Draw checkered background
-            const cols = canvas.width / BLOCK;
-            const rows = canvas.height / BLOCK;
-            for (let y = 0; y < rows; y++) {
-                for (let x = 0; x < cols; x++) {
-                    ctx.fillStyle = (x + y) % 2 === 0 ? '#a2d4fa' : '#5296e4ff'; // light blue and blue
-                    ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
-                }
+                            activeDot(food.x, food.y, "#e53935"); // red for apple
+                addFood();
+                activeDot(food.x, food.y);
             }
+            // Repaint canvas
+            ctx.beginPath();
+            ctx.fillStyle = "royalblue";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
             // Paint snake
             for(let i = 0; i < snake.length; i++){
-                activeDot(snake[i].x, snake[i].y, "#00FF00"); // green for snake
+                activeDot(snake[i].x, snake[i].y);
             }
             // Paint food
-            activeDot(food.x, food.y, "#FF0000"); // red for apple
+            activeDot(food.x, food.y);
             // Debug
             //document.getElementById("debug").innerHTML = snake_dir + " " + snake_next_dir + " " + snake[0].x + " " + snake[0].y;
             // Recursive call after speed delay, déjà vu
@@ -311,7 +284,7 @@ permalink: /snake/
         let newGame = function(){
             // snake game screen
             showScreen(SCREEN_SNAKE);
-            setTimeout(() => { screen_snake.focus(); }, 50); // ensure focus after DOM update
+            screen_snake.focus();
             // game score to zero
             score = 0;
             altScore(score);
@@ -330,34 +303,30 @@ permalink: /snake/
         /* Key Inputs and Actions */
         /////////////////////////////////////////////////////////////
         let changeDir = function(key){
-            // Only arrow keys
+            // test key and switch direction
             switch(key) {
                 case 37:    // left arrow
-                case 'ArrowLeft':
-                    if (snake_dir !== 1)
-                        snake_next_dir = 3;
+                    if (snake_dir !== 1)    // not right
+                        snake_next_dir = 3; // then switch left
                     break;
                 case 38:    // up arrow
-                case 'ArrowUp':
-                    if (snake_dir !== 2)
-                        snake_next_dir = 0;
+                    if (snake_dir !== 2)    // not down
+                        snake_next_dir = 0; // then switch up
                     break;
                 case 39:    // right arrow
-                case 'ArrowRight':
-                    if (snake_dir !== 3)
-                        snake_next_dir = 1;
+                    if (snake_dir !== 3)    // not left
+                        snake_next_dir = 1; // then switch right
                     break;
                 case 40:    // down arrow
-                case 'ArrowDown':
-                    if (snake_dir !== 0)
-                        snake_next_dir = 2;
+                    if (snake_dir !== 0)    // not up
+                        snake_next_dir = 2; // then switch down
                     break;
             }
         }
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
-        let activeDot = function(x, y, color){
-            ctx.fillStyle = color;
+        let activeDot = function(x, y){
+            ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(x * BLOCK, y * BLOCK, BLOCK, BLOCK);
         }
         /* Random food placement */
