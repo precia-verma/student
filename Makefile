@@ -11,7 +11,7 @@ SHELL = /bin/bash -c
 
 # List all .ipynb files in the _notebooks directory
 NOTEBOOK_FILES := $(shell find _notebooks -name '*.ipynb')
-CSP_NOTEBOOK_FILES := $(shell find _notebooks/CSP -name '*.ipynb')
+CSP_NOTEBOOK_FILES := $(shell if [ -d "_notebooks/CSP" ]; then find _notebooks/CSP -name '*.ipynb'; fi)
 
 # Specify the target directory for the converted Markdown files
 DESTINATION_DIRECTORY = _posts
