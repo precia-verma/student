@@ -6,6 +6,7 @@ title: CSSE Classes and Methods HW
 description: These are the homework problems and popcorn hacks.
 permalink: /class-methods
 author: Adya S, Niharika B, Salma Z, Anika S, Sophie H
+categories: [Homework]
 ---
 
 # CSSE Classes and Methods Homework
