@@ -5,7 +5,7 @@ breadcrumb: True
 title: CSSE Classes and Methods HW
 description: These are the homework problems and popcorn hacks.
 permalink: /class-methods
-author: Adya S, Niharika B, Salma Z, Anika S, Sophie H
+author: Precia Verma
 categories: [Homework]
 ---
 
