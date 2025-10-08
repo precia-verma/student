@@ -2,7 +2,7 @@
 layout: base
 toc: True
 breadcrumb: True
-title: CSSE Classes and Methods HW
+title: CSSE Classes and Methods HW 
 description: These are the homework problems and popcorn hacks.
 permalink: /class-methods
 author: Precia Verma
