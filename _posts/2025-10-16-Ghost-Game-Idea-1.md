@@ -161,7 +161,7 @@ custom_css:
 </script>
 
 <div style="text-align: center; margin-bottom: 50px; position: relative; padding: 30px 0;">
-  <div style="position: absolute; width: 100%; height: 100%; background-image: url('https://i.imgur.com/JsmPKs4.png'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.07; z-index: -1;"></div>
+  <div style="position: absolute; width: 100%; height: 100%; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa_Obez2eWBK972heq40EeH1E7T65LTBOZhw&s'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.07; z-index: -1;"></div>
   
   <!-- Title with flickering effect -->
   <div class="title-container" style="position: relative; display: inline-block; margin-bottom: 15px;">
