@@ -384,107 +384,138 @@ custom_css:
   <div style="position: absolute; bottom: 0; left: 0; width: 30px; height: 30px; border-bottom: 2px solid rgba(100,0,0,0.3); border-left: 2px solid rgba(100,0,0,0.3);"></div>
   <div style="position: absolute; bottom: 0; right: 0; width: 30px; height: 30px; border-bottom: 2px solid rgba(100,0,0,0.3); border-right: 2px solid rgba(100,0,0,0.3);"></div>
   
-  <!-- Audio elements for a richer horror experience -->
-  <audio id="horror-ambience" loop preload="auto">
-    <source src="/assets/audio/intense-horror-music-01-14890.mp3" type="audio/mpeg">
-    <source src="../assets/audio/intense-horror-music-01-14890.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="creepy-effect" preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_25ccccf8e6.mp3?filename=ghost-whisper-14930.mp3" type="audio/mpeg">
-  </audio>
-  
-  <div class="audio-controls" style="margin-top: 20px; position: relative;">
+  <!-- Sound control with embedded audio - simplified approach -->
+  <div class="audio-controls" style="margin-top: 20px; position: relative; text-align: center;">
+    <!-- Audio player with controls that will be hidden but can be triggered -->
+    <audio id="horror-audio" loop preload="auto" style="display:none;">
+      <source src="/assets/audio/intense-horror-music-01-14890.mp3" type="audio/mpeg">
+      <source src="../assets/audio/intense-horror-music-01-14890.mp3" type="audio/mpeg">
+      <source src="https://cdn.pixabay.com/download/audio/2021/09/08/audio_fd6fa14ae9.mp3?filename=intense-horror-music-01-14890.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Sound toggle button with visual indicator -->
     <button id="sound-toggle" style="background-color: #2a0a0a; color: #700000; border: 1px solid #4e0000; padding: 8px 20px; margin-top: 20px; cursor: pointer; font-family: 'IM Fell English SC', serif; letter-spacing: 1px; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.7);">
       <span style="position: relative; z-index: 2;">🔊 Enable Haunting Sounds</span>
       <div class="button-overlay" style="position: absolute; top: 0; left: -100%; width: 200%; height: 100%; background: linear-gradient(to right, transparent, rgba(120,0,0,0.2), transparent); transition: transform 0.5s ease; transform: skewX(-20deg); z-index: 1;"></div>
     </button>
     
-    <!-- Random whispers effect -->
-    <div class="random-whisper" style="position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8em; color: #4a3a3a; font-style: italic; opacity: 0; transition: opacity 0.5s ease;">Do you hear them?</div>
+    <!-- Hidden visual indicator for sound playing status -->
+    <div id="sound-indicator" style="width: 10px; height: 10px; border-radius: 50%; background-color: #700000; margin: 10px auto 0; opacity: 0; transition: opacity 0.5s ease;"></div>
   </div>
   
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize sound on window load to ensure all assets are loaded
+    window.addEventListener('load', function() {
+      console.log("Window fully loaded - initializing audio...");
+      
+      // Elements
       var soundToggle = document.getElementById('sound-toggle');
-      var audio = document.getElementById('horror-ambience');
-      var creepyEffect = document.getElementById('creepy-effect');
+      var audioElement = document.getElementById('horror-audio');
       var buttonOverlay = document.querySelector('.button-overlay');
-      var randomWhisper = document.querySelector('.random-whisper');
+      var soundIndicator = document.getElementById('sound-indicator');
       
-      // Whisper messages
-      var whispers = [
-        "Do you hear them?",
-        "She's watching you...",
-        "Turn back now...",
-        "They know you're here...",
-        "You can't escape...",
-        "Help me...",
-        "Never sleep again..."
-      ];
+      // Set initial state
+      var soundEnabled = false;
       
-      // Random whisper effect
-      function showRandomWhisper() {
-        if (Math.random() > 0.7 && !audio.paused) {
-          randomWhisper.textContent = whispers[Math.floor(Math.random() * whispers.length)];
-          randomWhisper.style.opacity = "0.7";
-          
-          // Play a creepy whisper sound with low volume
-          if (Math.random() > 0.5) {
-            creepyEffect.volume = 0.1;
-            creepyEffect.play();
-          }
-          
-          setTimeout(function() {
-            randomWhisper.style.opacity = "0";
-          }, 3000);
-        }
+      // Set volume to a reasonable level
+      audioElement.volume = 0.3;
+      
+      // Preload audio (explicit)
+      try {
+        audioElement.load();
+        console.log("Audio preloaded");
+      } catch(e) {
+        console.error("Error preloading audio:", e);
       }
       
-      // Start whisper interval when audio is playing
-      var whisperInterval;
-      
+      // Sound toggle functionality
       soundToggle.addEventListener('click', function() {
-        if (audio.paused) {
-          audio.volume = 0.2;  // Set a reasonable volume
-          audio.play();
-          this.querySelector('span').textContent = '🔇 Disable Haunting Sounds';
-          
-          // Animate the button
-          buttonOverlay.style.transform = "translateX(100%) skewX(-20deg)";
-          
-          // Start random whispers
-          whisperInterval = setInterval(showRandomWhisper, 15000);
-          
+        console.log("Sound toggle clicked");
+        
+        if (soundEnabled) {
+          // Disable sound
+          try {
+            audioElement.pause();
+            audioElement.currentTime = 0;
+            soundEnabled = false;
+            updateInterface(false);
+            console.log("Sound disabled");
+          } catch(e) {
+            console.error("Error disabling sound:", e);
+          }
         } else {
-          audio.pause();
-          creepyEffect.pause();
-          this.querySelector('span').textContent = '🔊 Enable Haunting Sounds';
-          
-          // Animate the button
-          buttonOverlay.style.transform = "translateX(-100%) skewX(-20deg)";
-          
-          // Stop random whispers
-          clearInterval(whisperInterval);
-          randomWhisper.style.opacity = "0";
+          // Enable sound
+          try {
+            // Force a user interaction to allow autoplay
+            var playPromise = audioElement.play();
+            
+            if (playPromise !== undefined) {
+              playPromise.then(function() {
+                soundEnabled = true;
+                updateInterface(true);
+                console.log("Sound enabled successfully");
+              }).catch(function(error) {
+                console.error("Play failed:", error);
+                
+                // Try again after a brief delay
+                setTimeout(function() {
+                  audioElement.play().then(function() {
+                    soundEnabled = true;
+                    updateInterface(true);
+                    console.log("Second attempt succeeded");
+                  }).catch(function(e) {
+                    alert("Unable to play audio. Your browser may be blocking autoplay.");
+                    console.error("Second attempt failed:", e);
+                  });
+                }, 100);
+              });
+            }
+          } catch(e) {
+            console.error("Error enabling sound:", e);
+          }
         }
       });
       
-      // Button hover effect
+      // Update the interface based on sound state
+      function updateInterface(isPlaying) {
+        if (isPlaying) {
+          soundToggle.querySelector('span').textContent = '🔇 Disable Haunting Sounds';
+          buttonOverlay.style.transform = "translateX(100%) skewX(-20deg)";
+          soundIndicator.style.opacity = "1";
+          soundIndicator.style.animation = "pulse 2s infinite";
+        } else {
+          soundToggle.querySelector('span').textContent = '🔊 Enable Haunting Sounds';
+          buttonOverlay.style.transform = "translateX(-100%) skewX(-20deg)";
+          soundIndicator.style.opacity = "0";
+          soundIndicator.style.animation = "none";
+        }
+      }
+      
+      // Add hover effects
       soundToggle.addEventListener('mouseover', function() {
         buttonOverlay.style.transform = "translateX(0%) skewX(-20deg)";
       });
       
       soundToggle.addEventListener('mouseout', function() {
-        if (audio.paused) {
-          buttonOverlay.style.transform = "translateX(-100%) skewX(-20deg)";
-        } else {
+        if (soundEnabled) {
           buttonOverlay.style.transform = "translateX(100%) skewX(-20deg)";
+        } else {
+          buttonOverlay.style.transform = "translateX(-100%) skewX(-20deg)";
         }
       });
+      
+      // Add pulsing animation for the sound indicator
+      var style = document.createElement('style');
+      style.textContent = `
+        @keyframes pulse {
+          0% { opacity: 0.3; transform: scale(0.8); }
+          50% { opacity: 0.8; transform: scale(1.2); }
+          100% { opacity: 0.3; transform: scale(0.8); }
+        }
+      `;
+      document.head.appendChild(style);
     });
-  } else {
-    console.error("No hotspots found in the mansion map!");
-  }
   </script>
 </div>
 
