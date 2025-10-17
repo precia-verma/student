@@ -603,7 +603,7 @@ custom_css:
 <div style="position: relative; margin-bottom: 40px; margin-top: 40px;">
   <h2 style="font-size: 2em; border-bottom: 1px solid #4e0000; padding-bottom: 10px;">🗺️ Explore the Mansion</h2>
   <div style="position: absolute; right: 20px; top: -10px; opacity: 0.3;">
-    <img src="https://cdn-icons-png.flaticon.com/512/2554/2554978.png" width="70" alt="mansion icon" style="filter: invert(0.8) sepia(0.3) saturate(3) hue-rotate(320deg);">
+    <img src="https://media.tenor.com/h3WXl6FWwUIAAAAe/ghost.png" width="70" alt="ghostly face" style="filter: brightness(0.8) contrast(1.4);">
   </div>
 </div>
 
