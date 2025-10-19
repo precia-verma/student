@@ -748,34 +748,31 @@ document.addEventListener('DOMContentLoaded', function() {
   // Room data - kept simple
   const roomData = {
     "foyer": {
-      title: "Grand Foyer",
+      title: "Grand Foyer (Quest 1)",
       description: "Once an impressive entryway with marble floors and crystal chandeliers, now cracked and covered in decades of dust. A grand staircase curves upward, littered with fallen portraits of the Blackwood family.",
       secret: "The floorboards creak in a rhythm almost like breathing. Visitors swear the chandelier sways even when there is no breeze, and sometimes the front door unlocks itself at exactly midnight."
     },
     "library": {
-      title: "Library",
-      description: "Thousands of ancient tomes line the walls. Many are rotted through, while others remain mysteriously pristine despite the years. A reading desk sits in the center, a leather-bound book still open as if its reader just stepped away.",
-      secret: "Books occasionally fall from shelves when no one is near. The open book on the desk changes pages between visits, always displaying passages about grief, betrayal, and a ritual performed in the cellar during the winter of 1887."
+      title: "Library (Quest 5)",
+      description: "Our game is a wave survival themed game, where you fight enemies like orcs, ghosts, and zombies. At the end of the waves, there will be a simple boss fight that drops the gem. Our game will be top-down, and will take place in the library. <b>Upon entering the room, the player will gain jordans on their feet.The library will be infinitely generated, once the boss is defeated a door will appear to return back. The player will have a very simple, linear, upgrade system for their weapon."
     },
     "master-bedroom": {
-      title: "Master Bedroom",
+      title: "Master Bedroom (Quest 6)",
       description: "Dominated by a four-poster bed with tattered silk hangings in deep crimson. A vanity with a cracked mirror still holds perfume bottles and a silver hairbrush with strands of long dark hair from its last owner, Eleanora Blackwood.",
       secret: "The bed sheets appear disturbed each morning, as if someone had been sleeping there. The mirror sometimes reflects a figure standing behind you when you are alone—a pale woman in a bloodstained nightgown who mouths words no one can hear."
     },
     "attic": {
-      title: "Attic",
-      description: "A maze of forgotten furniture, trunks, and childhood mementos. Light filters weakly through a small round window, illuminating dancing dust particles and a collection of porcelain dolls with eyes that seem to follow your movements.",
-      secret: "Children's laughter can sometimes be heard emanating from a Victorian rocking horse in the corner. A music box occasionally plays by itself at 3:33 AM, always the same haunting melody that was popular the year the Blackwood children disappeared."
+      title: "Gambling Room (Quest 4)",
+      description: "Inside a dimly lit gambling room within an old mansion, the player faces off against a ghostly dealer in a high-stakes game of blackjack. The atmosphere is eerie, with flickering candlelight casting shadows across the room as the faint sound of cards shuffling fills the air. The ghost challenges the player to win through skill and luck, offering a special reward for those who can reach $10,000 in winnings. Once the player achieves this goal, the ghost presents them with a mysterious key available for purchase. This key unlocks a hidden safe somewhere in the mansion, and inside it lies a collection of dazzling gems—the ultimate prize for outsmarting the spectral opponent."
     },
     "dining-room": {
-      title: "Dining Room",
+      title: "Dining Room (Main World)",
       description: "An elegant mahogany table set for a feast that never begins, with fine china and tarnished silver. Cobwebs connect the candelabra, and the grandfather clock in the corner is permanently stopped at 3:33—the time when Lord Blackwood reportedly made his fatal declaration.",
       secret: "Wine glasses have been known to shatter without being touched. Some nights, the sounds of silverware against plates and hushed conversation can be heard, followed by a woman's scream and then absolute silence that lasts until dawn."
     },
     "cellar": {
-      title: "Wine Cellar",
-      description: "Damp stone walls lined with empty and full bottles alike, some dating back centuries. The air is thick with the scent of earth, old cork, and something metallic. A single lantern provides the only illumination, revealing strange symbols carved into the far wall.",
-      secret: "Temperature drops dramatically in certain corners—cold enough to see your breath even in summer. A scratching sound comes from behind the marked wall, as if someone—or something—is trying to get out. The stones are stained with what might be very old wine... or something else."
+      title: "Graveyard",
+      description: "--------"
     },
     "east-wing": {
       title: "East Wing Corridor",
