@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graveyard Sequence Game</title>
+    <title>Mansion Level 2</title>
     <style>
         body {
             margin: 0;
@@ -21,6 +21,9 @@
         #game-container {
             border: 2px solid #333;
             border-radius: 8px;
+            width: 800px;
+            height: 600px;
+            position: relative;
         }
         canvas {
             display: block;
@@ -29,11 +32,29 @@
     </style>
 </head>
 <body>
-    <h1>Graveyard Sequence Game</h1>
     <div id="game-container">
         <!-- Canvas will be added here by the script -->
     </div>
     
     <script type="module" src="assets/js/mansionLevel2.js"></script>
+    <script>
+        // Debug script to test if mansion background loads
+        setTimeout(() => {
+            console.log('Testing mansion background initialization...');
+            if (window.initMansionLevel2Background) {
+                window.initMansionLevel2Background({
+                    onReady: (err, img) => {
+                        if (err) {
+                            console.error('Background failed:', err);
+                        } else {
+                            console.log('Background loaded successfully:', img);
+                        }
+                    }
+                });
+            } else {
+                console.error('mansionLevel2Background function not found');
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
