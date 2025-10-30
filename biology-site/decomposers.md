@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Decomposers
+layout: base
+title: Decomposers 
 permalink: /biology-chambers/decomposers/
 ---
 

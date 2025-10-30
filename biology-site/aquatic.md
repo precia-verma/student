@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 title: Aquatic Ecosystems
 permalink: /biology-chambers/aquatic/
 ---

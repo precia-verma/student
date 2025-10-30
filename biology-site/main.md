@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 title: Biology Chambers
 permalink: /biology-chambers/
 ---
@@ -13,19 +13,19 @@ Welcome to Biology Chambers! Explore the three main types of biological environm
 <div style="background: #e8f4f8; padding: 20px; border-radius: 10px; text-align: center;">
   <h2>🌊 Aquatic</h2>
   <p>Life in water environments - from tiny plankton to massive whales. Explore marine and freshwater ecosystems.</p>
-  <a href="/biology-chambers/aquatic/" style="display: inline-block; background: #0077cc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Learn About Aquatic</a>
+  <a href="https://precia-verma.github.io/student//biology-chambers/aquatic/" style="display: inline-block; background: #0077cc; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Learn About Aquatic</a>
 </div>
 
 <div style="background: #f0f8e8; padding: 20px; border-radius: 10px; text-align: center;">
   <h2>🌲 Terrestrial</h2>
   <p>Land-based ecosystems including forests, grasslands, and deserts with their unique adaptations.</p>
-  <a href="/biology-chambers/terrestrial/" style="display: inline-block; background: #228b22; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Learn About Terrestrial</a>
+  <a href="https://precia-verma.github.io/student//biology-chambers/terrestrial/" style="display: inline-block; background: #228b22; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Learn About Terrestrial</a>
 </div>
 
 <div style="background: #f8f0e8; padding: 20px; border-radius: 10px; text-align: center;">
   <h2>🍄 Decomposers</h2>
   <p>Essential organisms that break down dead matter and recycle nutrients back into ecosystems.</p>
-  <a href="/biology-chambers/decomposers/" style="display: inline-block; background: #cc7700; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Learn About Decomposers</a>
+  <a href="https://precia-verma.github.io/student//biology-chambers/decomposers/" style="display: inline-block; background: #cc7700; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Learn About Decomposers</a>
 </div>
 
 </div>

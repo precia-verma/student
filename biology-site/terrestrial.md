@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Terrestrial Ecosystems
+layout: base
+title: Terrestrial Ecosystems 
 permalink: /biology-chambers/terrestrial/
 ---
 
