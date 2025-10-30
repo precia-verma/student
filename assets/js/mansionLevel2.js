@@ -7,8 +7,8 @@
 
 (function () {
   const bgPaths = [
+    '/student/assets/images/mansion-untitled.jpeg', // GitHub Pages path
     'assets/images/mansion-untitled.jpeg', // relative path
-    '/student/assets/images/mansion-untitled.jpeg', // absolute path with /student/ prefix
     './assets/images/mansion-untitled.jpeg', // explicit relative path
     '/student/images/haunted-mansion-battle-map-30x36-v0-u37w8jh2gfud1.webp'
   ];
@@ -75,10 +75,13 @@
   }
 
   function applyCssBackground(container, path) {
+    console.log('Applying CSS background to container:', container, 'with path:', path);
     container.style.backgroundImage = `url('${path}')`;
     container.style.backgroundSize = 'cover';
     container.style.backgroundPosition = 'center center';
     container.style.backgroundRepeat = 'no-repeat';
+    container.style.minHeight = '600px'; // Ensure container has height
+    container.style.width = '100%';
   }
 
   function applyFallback(container, canvas) {
