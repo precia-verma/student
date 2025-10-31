@@ -1,5 +1,5 @@
 ---
-layout: opencs
+layout: base
 title: Mansion Level 2
 permalink: /gamify/mansion2
 ---
@@ -10,18 +10,39 @@ permalink: /gamify/mansion2
 </div>
 
 <script type="module">
-    import Game from "{{site.baseurl}}/assets/js/mansionGame/Game.js";
-    import MansionLevel2 from "{{site.baseurl}}/assets/js/mansionGame/MansionLevel2.js";
-    import { pythonURI, javaURI, fetchOptions } from '{{site.baseurl}}/assets/js/api/config.js';
+    import MansionLevel2 from "{{site.baseurl}}/assets/js/MansionLevel2.js";
+    import Engine from "{{site.baseurl}}/assets/js/GameEngine/Engine.js";
 
+    // Setup canvas and environment
+    const gameCanvas = document.getElementById("gameCanvas");
+    gameCanvas.width = 1280;
+    gameCanvas.height = 720;
+
+    // Create the game environment object
     const environment = {
-        path:"{{site.baseurl}}",
-        pythonURI: pythonURI,
-        javaURI: javaURI,
-        fetchOptions: fetchOptions,
-        gameContainer: document.getElementById("gameContainer"),
-        gameCanvas: document.getElementById("gameCanvas"),
-        gameLevelClasses: [MansionLevel2]
-    }
-    Game.main(environment);
+        path: "{{site.baseurl}}",
+        innerWidth: gameCanvas.width,
+        innerHeight: gameCanvas.height
+    };
+
+    // Initialize MansionLevel2 (which sets up background and player)
+    const level = new MansionLevel2(environment);
+
+    // Create the game engine
+    const engine = new Engine(gameCanvas);
+
+
+    // Add all classes from MansionLevel2 to the engine with correct constructor arguments
+    level.classes.forEach(obj => {
+        if (obj.class.name === 'GameEnvBackground') {
+            engine.add(new obj.class(gameCanvas.width, gameCanvas.height, obj.data));
+        } else if (obj.class.name === 'Player') {
+            engine.add(new obj.class(gameCanvas.getContext('2d'), obj.data));
+        } else {
+            engine.add(new obj.class(obj.data));
+        }
+    });
+
+    // Start the engine
+    engine.start();
 </script>

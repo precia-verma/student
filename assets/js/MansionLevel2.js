@@ -1,6 +1,6 @@
 // To build GameLevels, each contains GameObjects from below imports
 import GameEnvBackground from './GameEngine/GameEnvBackground.js';
-import Player from './GameEngine/Player.js';
+import Player from '../player.js';
 
 class MansionLevel2 {
   constructor(gameEnv) {
@@ -9,12 +9,16 @@ class MansionLevel2 {
     let path = gameEnv.path;
 
     // Background data (customize as needed)
-  const image_background = path + "/assets/images/mansion-untitled.jpeg"; // Updated background path
+    // Debug: log the background image path
+    console.log("Background image path:", path + "/assets/images/mansion-untitled.jpeg");
+    // To test with a public image, uncomment the next line:
+    // const image_background = "https://via.placeholder.com/1280x720.png?text=Test+Background";
+    const image_background = path + "/assets/images/mansion-untitled.jpeg"; // Updated background path
     const image_data_background = {
       name: 'background',
       greeting: "Welcome to the Graveyard Level!",
       src: image_background,
-      pixels: {height: 1280, width: 720},
+      pixels: {width: 1280, height: 720}, // Fixed to match canvas size
       mode: 'stretch'
     };
 
