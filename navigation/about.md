@@ -1,115 +1,50 @@
 ---
 layout: post
-title: About Precia Verma
+title: Personal Blog Retrospective
 permalink: /about/
 comments: true
 ---
 
-## As a conversation Starter
+## My Tech Journey: A Retrospective
 
-Here are some places I have lived.
+### 🚀 Tech Accomplishments
 
-<comment>
-Flags are made using Wikipedia images
-</comment>
+Throughout this trimester, I've made significant strides in my technical development:
 
-<style>
-    /* Style looks pretty compact, 
-       - grid-container and grid-item are referenced the code 
-    */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Dynamic columns */
-        gap: 10px;
-    }
-    .grid-item {
-        text-align: center;
-    }
-    .grid-item img {
-        width: 100%;
-        height: 100px; /* Fixed height for uniformity */
-        object-fit: contain; /* Ensure the image fits within the fixed height */
-    }
-    .grid-item p {
-        margin: 5px 0; /* Add some margin for spacing */
-    }
+- **Full-Stack Development**: Built and deployed multiple web applications using modern frameworks and tools
+- **Game Development**: Created interactive games including the Level 2 Mansion game, implementing complex logic and user interactions
+- **API Integration**: Successfully integrated various APIs for data storage and retrieval using local storage
+- **Frontend Mastery**: Developed responsive and visually appealing interfaces using HTML, CSS, and JavaScript
+- **Python Programming**: Worked with Jupyter notebooks for data analysis and code documentation
+- **Version Control**: Maintained organized repositories with proper Git workflows and collaboration practices
 
-    .image-gallery {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 10px;
-        }
+### 🤝 Collaboration Highlight
 
-    .image-gallery img {
-        max-height: 150px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-</style>
+One of my proudest moments was collaborating with my team on various projects. Working together, we:
 
-<!-- This grid_container class is used by CSS styling and the id is used by JavaScript connection -->
-<div class="grid-container" id="grid_container">
-    <!-- content will be added here by JavaScript -->
-</div>
+- **Shared Knowledge**: Helped each other debug code and understand complex concepts
+- **Code Reviews**: Provided constructive feedback on each other's implementations
+- **Problem Solving**: Brainstormed solutions together when faced with challenging bugs
+- **Division of Labor**: Effectively distributed tasks based on each member's strengths
+- **Communication**: Maintained clear communication through GitHub issues and team meetings
 
-<script>
-    // 1. Make a connection to the HTML container defined in the HTML div
-    var container = document.getElementById("grid_container"); // This container connects to the HTML div
+The collaborative environment taught me that programming is not just about writing code—it's about working together to create something greater than what we could build individually.
 
-    // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
-    var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
-    var living_in_the_world = [
-        {"flag": "0/01/Flag_of_California.svg", "greeting": "6 years", "description": "California"},
-    ];
+### 🎮 My Favorite Thing About the Level 2 Mansion Game
 
-    // 3a. Consider how to update style count for size of container
-    // The grid-template-columns has been defined as dynamic with auto-fill and minmax
+The Level 2 Mansion game holds a special place in my heart! My favorite aspect is **the puzzle-solving mechanics and the sense of exploration it creates**. 
 
-    // 3b. Build grid items inside of our container for each row of data
-    for (const location of living_in_the_world) {
-        // Create a "div" with "class grid-item" for each row
-        var gridItem = document.createElement("div");
-        gridItem.className = "grid-item";  // This class name connects the gridItem to the CSS style elements
-        // Add "img" HTML tag for the flag
-        var img = document.createElement("img");
-        img.src = http_source + location.flag; // concatenate the source and flag
-        img.alt = location.flag + " Flag"; // add alt text for accessibility
+What makes it stand out:
 
-        // Add "p" HTML tag for the description
-        var description = document.createElement("p");
-        description.textContent = location.description; // extract the description
+- **Immersive Experience**: The game creates an engaging atmosphere that draws players in
+- **Creative Challenges**: Each room presents unique puzzles that require logical thinking
+- **Progress Tracking**: Watching players navigate through different levels and unlock achievements
+- **Visual Design**: The attention to detail in the game's aesthetics makes it visually appealing
+- **Interactive Elements**: The way players can interact with different objects and discover hidden features
 
-        // Add "p" HTML tag for the greeting
-        var greeting = document.createElement("p");
-        greeting.textContent = location.greeting;  // extract the greeting
+Building this game taught me valuable lessons about user experience design, game logic implementation, and the importance of testing and iteration. Every bug fixed and feature added made the game better, and seeing it all come together was incredibly rewarding!
 
-        // Append img and p HTML tags to the grid item DIV
-        gridItem.appendChild(img);
-        gridItem.appendChild(description);
-        gridItem.appendChild(greeting);
+---
 
-        // Append the grid item DIV to the container DIV
-        container.appendChild(gridItem);
-    }
-</script>
+*This blog represents my growth as a developer and my journey through learning, collaboration, and creative problem-solving.*
 
-### Journey through Life
-
-Here is what I did at those places
-
-- 🏫 I went to many different Elementary Schools
-- 🏫 I went to Del Sur Elementary the Oak Valley and the Del Norte
-- 🎓 I graduated from Oak Valley in 2025
-- 🥇 I have won many beauty pagents in California
-- 👪 I spent a lot of time with family and friends
-- 🛍 I have done a TON of shopping in San Diego
-- 🤺 Started doing a new sport called fencing and I am really enjoying it 
-- 🪔 Celebrated many Indian Festivals with my friends and family which I really liked
-
-### Culture, Family, and Fun
-
-Everything for me, revolves around my loving family and amazing friends.
-
-- My mom has been by my side since day 1 and has never let me down. I really enjoy her company and will always be grateful to have a mother like her.
-- I have a family of 4, my younger sister, my dad, my mom, and ME! Just like me, my sister also goes to Del Sur elementary. My family is everything I could ever ask for and I love them so much. 
