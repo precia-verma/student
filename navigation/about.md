@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Personal Blog Retrospective
+title: About Precia Verma
 permalink: /about/
 comments: true
 ---
