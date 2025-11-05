@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Theme Changing"
-permalink: /theme changing
+permalink: /themechanging
 ---
 
 # Hello! I'm Precia
